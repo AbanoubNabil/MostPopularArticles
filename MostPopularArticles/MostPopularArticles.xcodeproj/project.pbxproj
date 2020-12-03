@@ -151,8 +151,8 @@
 		A7B6E02D2578F00A0079879A /* MostPopularArticles */ = {
 			isa = PBXGroup;
 			children = (
-				A7B6E1222579351B0079879A /* Modules */,
 				A7B6E07C2579016C0079879A /* Core */,
+				A7B6E1222579351B0079879A /* Modules */,
 				A7B6E02E2578F00A0079879A /* AppDelegate.swift */,
 				A7B6E0372578F00B0079879A /* Assets.xcassets */,
 				A7B6E0392578F00B0079879A /* LaunchScreen.storyboard */,
@@ -307,13 +307,8 @@
 		A7B6E1232579352A0079879A /* HomeModule */ = {
 			isa = PBXGroup;
 			children = (
-				A7B6E16B25795C5C0079879A /* Enums */,
-				A7B6E15525795A6A0079879A /* Service */,
-				A7B6E138257936070079879A /* Protocols */,
-				A7B6E136257935DB0079879A /* Router */,
-				A7B6E135257935CD0079879A /* Presenter */,
-				A7B6E134257935BE0079879A /* Interactor */,
-				A7B6E133257935B00079879A /* View */,
+				A7B6E196257994230079879A /* ArticleDetails */,
+				A7B6E195257993FB0079879A /* NewsList */,
 			);
 			path = HomeModule;
 			sourceTree = "<group>";
@@ -420,6 +415,27 @@
 				A7B6E16E25795C7E0079879A /* Period.swift */,
 			);
 			path = Period;
+			sourceTree = "<group>";
+		};
+		A7B6E195257993FB0079879A /* NewsList */ = {
+			isa = PBXGroup;
+			children = (
+				A7B6E16B25795C5C0079879A /* Enums */,
+				A7B6E15525795A6A0079879A /* Service */,
+				A7B6E138257936070079879A /* Protocols */,
+				A7B6E136257935DB0079879A /* Router */,
+				A7B6E135257935CD0079879A /* Presenter */,
+				A7B6E134257935BE0079879A /* Interactor */,
+				A7B6E133257935B00079879A /* View */,
+			);
+			path = NewsList;
+			sourceTree = "<group>";
+		};
+		A7B6E196257994230079879A /* ArticleDetails */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ArticleDetails;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
