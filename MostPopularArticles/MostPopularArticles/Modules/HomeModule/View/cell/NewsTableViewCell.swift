@@ -13,4 +13,9 @@ class NewsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+	
+	func setUp(news: NewsArticle) {
+		
+	}
+	
 }

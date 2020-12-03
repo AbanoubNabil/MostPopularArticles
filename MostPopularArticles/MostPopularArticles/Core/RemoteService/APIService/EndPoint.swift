@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol EndPoint: EnvironmentProtocol, AccessTokenAuthorizable, CommonHeadersProtocol {
+protocol EndPoint: EnvironmentProtocol, CommonParametersProtocol, AccessTokenAuthorizable, CommonHeadersProtocol {
     var baseUrl: String { get }
 
     var path: String { get }

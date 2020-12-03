@@ -19,27 +19,24 @@ class NYTMostViewdArticlesInteractor {
 // MARK: - Presenter To Interactor Protocol
 
 extension NYTMostViewdArticlesInteractor: NYTMostViewdArticlesInteractorProtocol {
-	func fetchRequestsHistory() {
-		apiService.fetchRequestsHistory { [weak self] response in
+	func fetchNewsWith(period: Period) {
+		service.getNYTimesNews(period: period){ [weak self] response in
 			DispatchQueue.main.async {
 				switch response {
 				case let .success(parsedResponse):
 					print(parsedResponse)
-					if parsedResponse.code == 200, let history = parsedResponse.data {
-						self?.presenter.historyFetchSuccessful(history)
-					} else {
-						self?.presenter?.historyFetchFailure(error: EAError.customBackendError(message: parsedResponse.message ?? ""))
+					if let news = parsedResponse.results {
+						self?.presenter?.fetchNewsSuccessful(news: news)
 					}
 				case let .failure(error):
-					if let error = error as? EAError {
+					print(error)
+					if let error = error as? NYError {
 						switch error {
 						case .authentication:
-							self?.presenter.sessionExpired()
+							self?.presenter?.fetchNewsFailure(error: error)
 						default:
-							self?.presenter?.historyFetchFailure(error: error)
+							print("Failure")
 						}
-					} else {
-						self?.presenter?.historyFetchFailure(error: error)
 					}
 				}
 			}

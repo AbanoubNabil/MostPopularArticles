@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NYTMostViewdArticlesViewController" customModule="MostPopularArticles" customModuleProvider="target">
             <connections>
+                <outlet property="newsTableView" destination="IEW-0K-7wA" id="Hk7-zv-4oY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

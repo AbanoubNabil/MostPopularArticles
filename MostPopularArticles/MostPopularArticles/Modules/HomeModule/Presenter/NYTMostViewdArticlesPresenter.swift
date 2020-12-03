@@ -10,7 +10,7 @@
 
 import UIKit
 
-class NYTMostViewdArticlesPresenter: NYTMostViewdArticlesPresenterProtocol {
+class NYTMostViewdArticlesPresenter {
 
     weak private var view: NYTMostViewdArticlesViewProtocol?
     var interactor: NYTMostViewdArticlesInteractorProtocol?
@@ -22,4 +22,20 @@ class NYTMostViewdArticlesPresenter: NYTMostViewdArticlesPresenterProtocol {
         self.router = router
     }
 
+}
+
+extension NYTMostViewdArticlesPresenter: NYTMostViewdArticlesPresenterProtocol {
+	
+	func getMostViewdNews() {
+		view?.startLoadingAnimation()
+		interactor?.fetchNewsWith(period: .week)
+	}
+	
+	func fetchNewsSuccessful(news: [NewsArticle]) {
+		view?.stopLoadingAnimation()
+	}
+	
+	func fetchNewsFailure(error: Error) {
+		view?.stopLoadingAnimation()
+	}
 }

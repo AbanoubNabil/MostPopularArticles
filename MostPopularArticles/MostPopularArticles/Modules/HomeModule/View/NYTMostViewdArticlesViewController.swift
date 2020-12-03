@@ -10,16 +10,35 @@
 
 import UIKit
 
-class NYTMostViewdArticlesViewController: UIViewController, NYTMostViewdArticlesViewProtocol {
+class NYTMostViewdArticlesViewController: UIViewController {
 
+
+	@IBOutlet weak var newsTableView: UITableView!
+	
 	var presenter: NYTMostViewdArticlesPresenterProtocol?
-
+	
 	override func viewDidLoad() {
         super.viewDidLoad()
+		regisetrNewsCell()
     }
+	
+	func regisetrNewsCell() {
+		let nib = UINib(nibName: "\(NewsTableViewCell.self)", bundle: nil)
+		newsTableView.register(nib, forCellReuseIdentifier: "\(NewsTableViewCell.self)")
+	}
 
 }
 
+extension NYTMostViewdArticlesViewController: NYTMostViewdArticlesViewProtocol{
+	func startLoadingAnimation() {
+		
+	}
+	
+	func stopLoadingAnimation() {
+		
+	}
+	
+}
 
 extension NYTMostViewdArticlesViewController : UITableViewDelegate, UITableViewDataSource{
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -27,7 +46,8 @@ extension NYTMostViewdArticlesViewController : UITableViewDelegate, UITableViewD
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "")
+		let cell = tableView.dequeueReusableCell(withIdentifier: "\(NewsTableViewCell.self)") as? NewsTableViewCell
+		
 		return cell ?? UITableViewCell()
 	}
 	

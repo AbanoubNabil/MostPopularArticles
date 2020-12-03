@@ -22,11 +22,6 @@ extension APIService {
                 print(String(data: data, encoding: .utf8)!)
             }
 
-            if let status = (response as? HTTPURLResponse)?.statusCode, status == 401 {
-                completion(Result.failure(NYError.authentication))
-                return
-            }
-
             if let nyError = (error as? NSError)?.toEAError {
                 completion(Result.failure(nyError))
                 return

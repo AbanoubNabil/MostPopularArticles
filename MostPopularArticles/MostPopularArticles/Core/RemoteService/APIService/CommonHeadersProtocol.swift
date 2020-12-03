@@ -11,9 +11,13 @@ protocol CommonHeadersProtocol {
     var commonHeaders: [String: String] { get }
 }
 
+protocol CommonParametersProtocol {
+	var commonParameters: [String: String] { get }
+}
+
 extension CommonHeadersProtocol {
 	/**
-	add aditional parameter EX:-
+	add aditional header EX:-
 	["Accept": "application/json"]
 	["language": ""]
 	*/
@@ -22,4 +26,15 @@ extension CommonHeadersProtocol {
         params += ["Content-Type": "application/json"]
         return params
     }
+}
+
+extension CommonParametersProtocol {
+	/**
+	add aditional parameter.
+	*/
+	var commonParameters: [String: String] {
+		var params = [String: String]()
+		params += ["api-key": Environment.shared.apiKey]
+		return params
+	}
 }

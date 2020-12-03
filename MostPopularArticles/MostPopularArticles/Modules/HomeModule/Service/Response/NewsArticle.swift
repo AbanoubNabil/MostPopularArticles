@@ -13,7 +13,7 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 
 import Foundation
 
-struct Results : Codable {
+struct NewsArticle : Codable {
 	let uri : String?
 	let url : String?
 	let id : Int?

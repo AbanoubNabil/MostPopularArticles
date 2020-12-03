@@ -6,13 +6,9 @@
 //
 
 import Foundation
-enum period: Int {
-	case day = 1
-	case week = 7
-	case month = 30
-}
+
 class NYTimesNewsService: APIService<NYTimesNewsEndPoint> {
-	func getNYTimesNews(period: Int, completion: @escaping (Result<NYTimesNewsResponse, Error>) -> Void) {
-		sendRequest(target: .getRequestdetails(requestId: id), completion: completion)
+	func getNYTimesNews(period: Period, completion: @escaping (Result<NYTimesNewsResponse, Error>) -> Void) {
+		sendRequest(target: .getNYTimesNews(period: period), completion: completion)
 	}
 }

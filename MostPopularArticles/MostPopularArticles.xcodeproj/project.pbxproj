@@ -35,11 +35,12 @@
 		A7B6E13D257940A40079879A /* NYTimesNewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6E139257940A30079879A /* NYTimesNewsResponse.swift */; };
 		A7B6E13E257940A40079879A /* Media_metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6E13A257940A40079879A /* Media_metadata.swift */; };
 		A7B6E13F257940A40079879A /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6E13B257940A40079879A /* Media.swift */; };
-		A7B6E140257940A40079879A /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6E13C257940A40079879A /* Results.swift */; };
+		A7B6E140257940A40079879A /* NewsArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6E13C257940A40079879A /* NewsArticle.swift */; };
 		A7B6E14C257954A00079879A /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6E14A257954A00079879A /* NewsTableViewCell.swift */; };
 		A7B6E14D257954A00079879A /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7B6E14B257954A00079879A /* NewsTableViewCell.xib */; };
 		A7B6E15725795A830079879A /* NYTimesNewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6E15625795A830079879A /* NYTimesNewsService.swift */; };
 		A7B6E15E25795B680079879A /* NYTimesNewsEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6E15D25795B680079879A /* NYTimesNewsEndPoint.swift */; };
+		A7B6E16F25795C7E0079879A /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6E16E25795C7E0079879A /* Period.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,11 +95,12 @@
 		A7B6E139257940A30079879A /* NYTimesNewsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NYTimesNewsResponse.swift; sourceTree = "<group>"; };
 		A7B6E13A257940A40079879A /* Media_metadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media_metadata.swift; sourceTree = "<group>"; };
 		A7B6E13B257940A40079879A /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
-		A7B6E13C257940A40079879A /* Results.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
+		A7B6E13C257940A40079879A /* NewsArticle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsArticle.swift; sourceTree = "<group>"; };
 		A7B6E14A257954A00079879A /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		A7B6E14B257954A00079879A /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
 		A7B6E15625795A830079879A /* NYTimesNewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYTimesNewsService.swift; sourceTree = "<group>"; };
 		A7B6E15D25795B680079879A /* NYTimesNewsEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYTimesNewsEndPoint.swift; sourceTree = "<group>"; };
+		A7B6E16E25795C7E0079879A /* Period.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,13 +307,13 @@
 		A7B6E1232579352A0079879A /* HomeModule */ = {
 			isa = PBXGroup;
 			children = (
+				A7B6E16B25795C5C0079879A /* Enums */,
 				A7B6E15525795A6A0079879A /* Service */,
 				A7B6E138257936070079879A /* Protocols */,
 				A7B6E136257935DB0079879A /* Router */,
 				A7B6E135257935CD0079879A /* Presenter */,
 				A7B6E134257935BE0079879A /* Interactor */,
 				A7B6E133257935B00079879A /* View */,
-				A7B6E137257935F80079879A /* Model */,
 			);
 			path = HomeModule;
 			sourceTree = "<group>";
@@ -350,15 +352,15 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
-		A7B6E137257935F80079879A /* Model */ = {
+		A7B6E137257935F80079879A /* Response */ = {
 			isa = PBXGroup;
 			children = (
 				A7B6E139257940A30079879A /* NYTimesNewsResponse.swift */,
 				A7B6E13A257940A40079879A /* Media_metadata.swift */,
 				A7B6E13B257940A40079879A /* Media.swift */,
-				A7B6E13C257940A40079879A /* Results.swift */,
+				A7B6E13C257940A40079879A /* NewsArticle.swift */,
 			);
-			path = Model;
+			path = Response;
 			sourceTree = "<group>";
 		};
 		A7B6E138257936070079879A /* Protocols */ = {
@@ -381,6 +383,7 @@
 		A7B6E15525795A6A0079879A /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				A7B6E137257935F80079879A /* Response */,
 				A7B6E15C25795B580079879A /* EndPoint */,
 				A7B6E15B25795B4A0079879A /* RemoteService */,
 			);
@@ -401,6 +404,22 @@
 				A7B6E15D25795B680079879A /* NYTimesNewsEndPoint.swift */,
 			);
 			path = EndPoint;
+			sourceTree = "<group>";
+		};
+		A7B6E16B25795C5C0079879A /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				A7B6E16C25795C660079879A /* Period */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		A7B6E16C25795C660079879A /* Period */ = {
+			isa = PBXGroup;
+			children = (
+				A7B6E16E25795C7E0079879A /* Period.swift */,
+			);
+			path = Period;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -540,6 +559,7 @@
 				A7B6E13E257940A40079879A /* Media_metadata.swift in Sources */,
 				A7B6E12B257935540079879A /* NYTMostViewdArticlesRouter.swift in Sources */,
 				A7B6E1052579172A0079879A /* NYError.swift in Sources */,
+				A7B6E16F25795C7E0079879A /* Period.swift in Sources */,
 				A7B6E13F257940A40079879A /* Media.swift in Sources */,
 				A7B6E13D257940A40079879A /* NYTimesNewsResponse.swift in Sources */,
 				A7B6E0D3257913A10079879A /* Dictionary.swift in Sources */,
@@ -554,7 +574,7 @@
 				A7B6E0C8257911D30079879A /* CommonHeadersProtocol.swift in Sources */,
 				A7B6E12A257935540079879A /* NYTMostViewdArticlesPresenter.swift in Sources */,
 				A7B6E15725795A830079879A /* NYTimesNewsService.swift in Sources */,
-				A7B6E140257940A40079879A /* Results.swift in Sources */,
+				A7B6E140257940A40079879A /* NewsArticle.swift in Sources */,
 				A7B6E0E6257915D00079879A /* Defaults.swift in Sources */,
 				A7B6E0F02579165C0079879A /* EnvironmentProtocol.swift in Sources */,
 				A7B6E0F9257916A80079879A /* Environment.swift in Sources */,

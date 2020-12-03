@@ -17,7 +17,7 @@ struct NYTimesNewsResponse : Codable {
 	let status : String?
 	let copyright : String?
 	let numberOfResults : Int?
-	let results : [Results]?
+	let results : [NewsArticle]?
 
 	enum CodingKeys: String, CodingKey {
 
@@ -32,7 +32,7 @@ struct NYTimesNewsResponse : Codable {
 		status = try values.decodeIfPresent(String.self, forKey: .status)
 		copyright = try values.decodeIfPresent(String.self, forKey: .copyright)
 		numberOfResults = try values.decodeIfPresent(Int.self, forKey: .numberOfResults)
-		results = try values.decodeIfPresent([Results].self, forKey: .results)
+		results = try values.decodeIfPresent([NewsArticle].self, forKey: .results)
 	}
 
 }

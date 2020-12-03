@@ -16,17 +16,24 @@ protocol NYTMostViewdArticlesWireframeProtocol: class {
 }
 //MARK: Presenter -
 protocol NYTMostViewdArticlesPresenterProtocol: class {
-
+	func getMostViewdNews()
+	func fetchNewsSuccessful(news: [NewsArticle])
+	func fetchNewsFailure(error: Error)
 }
 
 //MARK: Interactor -
 protocol NYTMostViewdArticlesInteractorProtocol: class {
 
-  var presenter: NYTMostViewdArticlesPresenterProtocol?  { get set }
+	var presenter: NYTMostViewdArticlesPresenterProtocol?  { get set }
+	func fetchNewsWith(period: Period)
+	
 }
 
 //MARK: View -
 protocol NYTMostViewdArticlesViewProtocol: class {
 
-  var presenter: NYTMostViewdArticlesPresenterProtocol?  { get set }
+	var presenter: NYTMostViewdArticlesPresenterProtocol?  { get set }
+	func startLoadingAnimation()
+	func stopLoadingAnimation()
+	
 }
