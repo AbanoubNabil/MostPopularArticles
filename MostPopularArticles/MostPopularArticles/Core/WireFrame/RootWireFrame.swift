@@ -18,10 +18,10 @@ class RootWireframe {
 		}
 		setApplicationRoot(window: window!)
 	}
+	
 	/**
 	use this method to add any checks for diferrent root setup
 	*/
-	
 	func setApplicationRoot(window: UIWindow) {
 		setUpHomeScreen(window: window)
 		window.makeKeyAndVisible()
