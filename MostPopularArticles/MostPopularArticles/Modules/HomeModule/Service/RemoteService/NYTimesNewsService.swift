@@ -7,9 +7,9 @@
 
 import Foundation
 enum period: Int {
-	case: 1
-	case 7
-	case 30
+	case day = 1
+	case week = 7
+	case month = 30
 }
 class NYTimesNewsService: APIService<NYTimesNewsEndPoint> {
 	func getNYTimesNews(period: Int, completion: @escaping (Result<NYTimesNewsResponse, Error>) -> Void) {

@@ -12,6 +12,7 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
+
 struct Results : Codable {
 	let uri : String?
 	let url : String?
@@ -23,7 +24,7 @@ struct Results : Codable {
 	let section : String?
 	let subsection : String?
 	let nytdsection : String?
-	let adx_adx_keywordswords : String?
+	let adx_keywords : String?
 	let column : String?
 	let byline : String?
 	let type : String?

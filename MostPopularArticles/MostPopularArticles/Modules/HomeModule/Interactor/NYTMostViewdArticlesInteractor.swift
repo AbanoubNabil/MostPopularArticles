@@ -10,9 +10,39 @@
 
 import UIKit
 
-class NYTMostViewdArticlesInteractor: NYTMostViewdArticlesInteractorProtocol {
-
+class NYTMostViewdArticlesInteractor {
+	
     weak var presenter: NYTMostViewdArticlesPresenterProtocol?
-	
-	
+	let service = NYTimesNewsService()
+}
+
+// MARK: - Presenter To Interactor Protocol
+
+extension NYTMostViewdArticlesInteractor: NYTMostViewdArticlesInteractorProtocol {
+	func fetchRequestsHistory() {
+		apiService.fetchRequestsHistory { [weak self] response in
+			DispatchQueue.main.async {
+				switch response {
+				case let .success(parsedResponse):
+					print(parsedResponse)
+					if parsedResponse.code == 200, let history = parsedResponse.data {
+						self?.presenter.historyFetchSuccessful(history)
+					} else {
+						self?.presenter?.historyFetchFailure(error: EAError.customBackendError(message: parsedResponse.message ?? ""))
+					}
+				case let .failure(error):
+					if let error = error as? EAError {
+						switch error {
+						case .authentication:
+							self?.presenter.sessionExpired()
+						default:
+							self?.presenter?.historyFetchFailure(error: error)
+						}
+					} else {
+						self?.presenter?.historyFetchFailure(error: error)
+					}
+				}
+			}
+		}
+	}
 }

@@ -18,7 +18,7 @@ struct Media : Codable {
 	let caption : String?
 	let copyright : String?
 	let approved_for_syndication : Int?
-	let media-metadata : [Media-metadata]?
+	let media_metadata : [Media_metadata]?
 
 	enum CodingKeys: String, CodingKey {
 
@@ -27,7 +27,7 @@ struct Media : Codable {
 		case caption = "caption"
 		case copyright = "copyright"
 		case approved_for_syndication = "approved_for_syndication"
-		case media-metadata = "media-metadata"
+		case media_metadata = "media-metadata"
 	}
 
 	init(from decoder: Decoder) throws {
@@ -37,7 +37,7 @@ struct Media : Codable {
 		caption = try values.decodeIfPresent(String.self, forKey: .caption)
 		copyright = try values.decodeIfPresent(String.self, forKey: .copyright)
 		approved_for_syndication = try values.decodeIfPresent(Int.self, forKey: .approved_for_syndication)
-		media-metadata = try values.decodeIfPresent([Media-metadata].self, forKey: .media-metadata)
+		media_metadata = try values.decodeIfPresent([Media_metadata].self, forKey: .media_metadata)
 	}
 
 }

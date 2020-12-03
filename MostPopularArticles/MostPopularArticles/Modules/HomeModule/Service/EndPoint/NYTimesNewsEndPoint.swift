@@ -6,3 +6,6 @@
 //
 
 import Foundation
+enum NYTimesNewsEndPoint {
+	case getNYTimesNews(period: Int)
+}
