@@ -8,9 +8,8 @@
 import UIKit
 
 class RootWireframe {
-	
 	// MARK: - Instance Variables
-	lazy var moduleNavigationController = UINavigationController ()
+	lazy var moduleNavigationController = UINavigationController()
 
 	init(onWindow window: inout UIWindow?) {
 		if window == nil {
@@ -18,7 +17,6 @@ class RootWireframe {
 		}
 		setApplicationRoot(window: window!)
 	}
-	
 	/**
 	use this method to add any checks for diferrent root setup
 	*/
@@ -33,5 +31,4 @@ class RootWireframe {
 		moduleNavigationController.viewControllers = [landingScreen]
 		window.rootViewController = moduleNavigationController
 	}
-	
 }

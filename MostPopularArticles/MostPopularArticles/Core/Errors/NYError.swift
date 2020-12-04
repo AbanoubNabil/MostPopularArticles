@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 enum NYError: Error {
 	case unknown
 	case parsing
@@ -52,7 +50,8 @@ extension NSError {
 		case .badServerResponse, .cannotParseResponse, .cannotDecodeRawData, .cannotDecodeContentData:
 			return .parsingResponse(message: "\(code): \(localizedDescription)")
 		case .badURL, .unsupportedURL:
-			return .badRequest(message: "\(code): Endpoint failed to encode the parameters for the URLRequest: \(localizedDescription)")
+			return .badRequest(message:
+								"\(code): Endpoint failed to encode the parameters for the URLRequest: \(localizedDescription)")
 		default:
 			return .underlying(code: code.rawValue, message: "\(code): \(localizedDescription)")
 		}

@@ -4,6 +4,7 @@
 target 'MostPopularArticles' do
   use_frameworks!
 	
+	pod 'SwiftLint'
   pod 'Kingfisher', '5.14.1'
   # Pods for MostPopularArticles
 

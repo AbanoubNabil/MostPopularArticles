@@ -6,14 +6,14 @@
 //  Copyright © 2020 Abanoub Nabil. All rights reserved.
 //
 
-
 import Foundation
 
-//MARK: Wireframe -
+// MARK: Wireframe -
 protocol NYTMostViewdArticlesWireframeProtocol: class {
 	func goTo(route: NYTMostViewdArticlesRouter.NewsListRouter)
 }
-//MARK: Presenter -
+
+// MARK: Presenter -
 protocol NYTMostViewdArticlesPresenterProtocol: class {
 	func getMostViewdNews()
 	func fetchNewsSuccessful(news: [NewsArticle])
@@ -23,20 +23,20 @@ protocol NYTMostViewdArticlesPresenterProtocol: class {
 	func didTapedCell(at index: Int)
 }
 
-//MARK: Interactor -
+// MARK: Interactor -
 protocol NYTMostViewdArticlesInteractorProtocol: class {
 
-	var presenter: NYTMostViewdArticlesPresenterProtocol?  { get set }
+	var presenter: NYTMostViewdArticlesPresenterProtocol? { get set }
 	func fetchNewsWith(period: Period)
-	
+
 }
 
-//MARK: View -
+// MARK: View -
 protocol NYTMostViewdArticlesViewProtocol: class {
 
-	var presenter: NYTMostViewdArticlesPresenterProtocol?  { get set }
+	var presenter: NYTMostViewdArticlesPresenterProtocol? { get set }
 	func startLoadingAnimation()
 	func stopLoadingAnimation()
 	func reloadDate()
-	
+
 }

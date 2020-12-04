@@ -17,12 +17,12 @@ extension APIService {
 	completion:- is escaping closure, accept Swift result as parameter and return void.
 	*/
     func sendRequest<R: Codable>(target: T, completion: @escaping (Swift.Result<R, Error>) -> Void) {
-        URLSession.shared.dataTask(with: target.urlRequest) { data, response, error in
+        URLSession.shared.dataTask(with: target.urlRequest) { data, _, error in
             if let data = data {
                 print(String(data: data, encoding: .utf8)!)
             }
 
-            if let nyError = (error as? NSError)?.toEAError {
+			if let nyError = (error as NSError?)?.toEAError {
                 completion(Result.failure(nyError))
                 return
             }

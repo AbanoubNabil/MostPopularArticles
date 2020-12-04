@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,7 +24,6 @@
 		A7B6E0CC257911D30079879A /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6E0C5257911D30079879A /* Task.swift */; };
 		A7B6E0CD257911D30079879A /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6E0C6257911D30079879A /* EndPoint.swift */; };
 		A7B6E0D3257913A10079879A /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6E0D2257913A10079879A /* Dictionary.swift */; };
-		A7B6E0E6257915D00079879A /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6E0E5257915D00079879A /* Defaults.swift */; };
 		A7B6E0F02579165C0079879A /* EnvironmentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6E0EF2579165C0079879A /* EnvironmentProtocol.swift */; };
 		A7B6E0F9257916A80079879A /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6E0F8257916A80079879A /* Environment.swift */; };
 		A7B6E1052579172A0079879A /* NYError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6E1042579172A0079879A /* NYError.swift */; };
@@ -101,7 +100,6 @@
 		A7B6E0C5257911D30079879A /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		A7B6E0C6257911D30079879A /* EndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		A7B6E0D2257913A10079879A /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
-		A7B6E0E5257915D00079879A /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		A7B6E0EF2579165C0079879A /* EnvironmentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentProtocol.swift; sourceTree = "<group>"; };
 		A7B6E0F8257916A80079879A /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		A7B6E1042579172A0079879A /* NYError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYError.swift; sourceTree = "<group>"; };
@@ -177,7 +175,6 @@
 				C2A9F4C120E50FECC81DD471 /* Pods-MostPopularArticlesTests.debug.xcconfig */,
 				3A5D64D4B89632A8D04933DB /* Pods-MostPopularArticlesTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -293,7 +290,6 @@
 				A7B6E20C257A360E0079879A /* UIView_height */,
 				A7B6E11825791A3A0079879A /* Dictionnary */,
 				A7B6E10C257917900079879A /* URL */,
-				A7B6E0E4257915BB0079879A /* UserDefaults */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -304,14 +300,6 @@
 				A7B6E0F72579168F0079879A /* Environment */,
 			);
 			path = LocalService;
-			sourceTree = "<group>";
-		};
-		A7B6E0E4257915BB0079879A /* UserDefaults */ = {
-			isa = PBXGroup;
-			children = (
-				A7B6E0E5257915D00079879A /* Defaults.swift */,
-			);
-			path = UserDefaults;
 			sourceTree = "<group>";
 		};
 		A7B6E0ED257916300079879A /* Protocols */ = {
@@ -599,6 +587,7 @@
 				A7B6E0282578F00A0079879A /* Frameworks */,
 				A7B6E0292578F00A0079879A /* Resources */,
 				F03A2C5409375FCC641EDEE8 /* [CP] Embed Pods Frameworks */,
+				A76AD025257AC1F100649771 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -766,6 +755,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A76AD025257AC1F100649771 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
 		DB92752DCDE44E77F8DAAADF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -858,7 +864,6 @@
 				A7B6E12A257935540079879A /* NYTMostViewdArticlesPresenter.swift in Sources */,
 				A7B6E15725795A830079879A /* NYTimesNewsService.swift in Sources */,
 				A7B6E140257940A40079879A /* NewsArticle.swift in Sources */,
-				A7B6E0E6257915D00079879A /* Defaults.swift in Sources */,
 				A7B6E0F02579165C0079879A /* EnvironmentProtocol.swift in Sources */,
 				A7B6E1ED257A334D0079879A /* TopInfoView.swift in Sources */,
 				A7B6E1D32579C7530079879A /* ArticleDetailsInteractor.swift in Sources */,
@@ -963,7 +968,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1018,7 +1023,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1037,6 +1042,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7G7238MTLW;
 				INFOPLIST_FILE = MostPopularArticles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1057,6 +1063,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7G7238MTLW;
 				INFOPLIST_FILE = MostPopularArticles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1077,7 +1084,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7G7238MTLW;
 				INFOPLIST_FILE = MostPopularArticlesTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1100,7 +1107,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7G7238MTLW;
 				INFOPLIST_FILE = MostPopularArticlesTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

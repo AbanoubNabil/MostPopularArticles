@@ -6,7 +6,6 @@
 //  Copyright © 2020 Abanoub Nabil. All rights reserved.
 //
 
-
 import UIKit
 
 class NYTMostViewdArticlesPresenter {
@@ -16,39 +15,40 @@ class NYTMostViewdArticlesPresenter {
     private let router: NYTMostViewdArticlesWireframeProtocol
 
 	var articles: [NewsArticle]?
-	
-    init(interface: NYTMostViewdArticlesViewProtocol, interactor: NYTMostViewdArticlesInteractorProtocol?, router: NYTMostViewdArticlesWireframeProtocol) {
-        self.view = interface
-        self.interactor = interactor
+
+	init(interface: NYTMostViewdArticlesViewProtocol,
+		 interactor: NYTMostViewdArticlesInteractorProtocol?, router: NYTMostViewdArticlesWireframeProtocol) {
+		self.view = interface
+		self.interactor = interactor
         self.router = router
     }
 
 }
 
 extension NYTMostViewdArticlesPresenter: NYTMostViewdArticlesPresenterProtocol {
-	
+
 	func getMostViewdNews() {
 		view?.startLoadingAnimation()
 		interactor?.fetchNewsWith(period: .week)
 	}
-	
+
 	func fetchNewsSuccessful(news: [NewsArticle]) {
 		view?.stopLoadingAnimation()
 		self.articles = news
 		view?.reloadDate()
 	}
-	
+
 	func fetchNewsFailure(error: Error) {
 		view?.stopLoadingAnimation()
 	}
 }
 
-extension NYTMostViewdArticlesPresenter{
-	
-	var newsCount: Int{
+extension NYTMostViewdArticlesPresenter {
+
+	var newsCount: Int {
 		return self.articles?.count ?? 0
 	}
-	
+
 	func getArticle(at index: Int) -> NewsArticle? {
 		return self.articles?[index]
 	}
@@ -60,4 +60,3 @@ extension NYTMostViewdArticlesPresenter{
 		router.goTo(route: .articleDetails(article: article))
 	}
 }
-

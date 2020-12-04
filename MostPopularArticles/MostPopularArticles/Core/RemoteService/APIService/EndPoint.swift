@@ -71,7 +71,8 @@ extension EndPoint {
             switch task {
             case .requestJson:
                 do {
-                    request.httpBody = try JSONSerialization.data(withJSONObject: bodyParmaters, options: JSONSerialization.WritingOptions.prettyPrinted)
+                    request.httpBody = try JSONSerialization.data(withJSONObject: bodyParmaters,
+																  options: JSONSerialization.WritingOptions.prettyPrinted)
                 } catch {
                     print(error)
                 }

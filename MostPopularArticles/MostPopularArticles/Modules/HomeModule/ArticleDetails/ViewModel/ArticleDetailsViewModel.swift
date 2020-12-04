@@ -16,7 +16,7 @@ struct ArticleDetailsViewModel {
 	}
 	
 	var articleImages: [String]?{
-		return newsArticle?.media?.first?.media_metadata?.compactMap({$0.url})
+		return newsArticle?.media?.first?.mediaMetadata?.compactMap({$0.url})
 	}
 	
 	var articleTitle: String {
@@ -24,7 +24,7 @@ struct ArticleDetailsViewModel {
 	}
 	
 	var articleDate: String {
-		return newsArticle?.published_date ?? ""
+		return newsArticle?.publishedDate ?? ""
 	}
 	
 	var articleSection: String {
