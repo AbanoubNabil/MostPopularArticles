@@ -29,7 +29,7 @@ class RootWireframe {
 
 	func setUpHomeScreen(window: UIWindow) {
 		let landingScreen = NYTMostViewdArticlesRouter.createModule()
-		moduleNavigationController.isNavigationBarHidden = true
+		moduleNavigationController.isNavigationBarHidden = false
 		moduleNavigationController.viewControllers = [landingScreen]
 		window.rootViewController = moduleNavigationController
 	}
