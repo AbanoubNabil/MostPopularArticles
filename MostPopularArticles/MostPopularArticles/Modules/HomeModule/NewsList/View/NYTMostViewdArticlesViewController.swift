@@ -8,24 +8,58 @@
 
 import UIKit
 
-class NYTMostViewdArticlesViewController: UIViewController {
-
+class NYTMostViewdArticlesViewController: BaseViewController {
 
 	@IBOutlet weak var newsTableView: UITableView!
 	
 	var presenter: NYTMostViewdArticlesPresenterProtocol?
+	let searchController = UISearchController(searchResultsController: nil)
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
-		regisetrNewsCell()
-		presenter?.getMostViewdNews()
     }
+	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		setUpUI()
+		presenter?.getMostViewdNews()
+	}
+	
+	func setUpUI() {
+		regisetrNewsCell()
+		setUpSearchBar()
+		setupNavigationBar(title: "NY Times Most Popular")
+		hideSearchBar()
+	}
+	
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		.default
+	}
 	
 	func regisetrNewsCell() {
 		let nib = UINib(nibName: "\(NewsTableViewCell.self)", bundle: nil)
 		newsTableView.register(nib, forCellReuseIdentifier: "\(NewsTableViewCell.self)")
 	}
+	
+	func setUpSearchBar() {
+		searchController.searchResultsUpdater = self
+		searchController.obscuresBackgroundDuringPresentation = false
+		searchController.searchBar.placeholder = "Search Articles"
+		navigationItem.searchController = searchController
+		definesPresentationContext = true
+	}
 
+	func hideSearchBar() {
+		self.searchController.searchBar.isHidden = true
+		self.newsTableView.tableHeaderView = nil
+		newsTableView.setNeedsLayout()
+	}
+	
+	func showSearchBar() {
+		self.searchController.searchBar.isHidden = false
+		self.newsTableView.tableHeaderView = self.searchController.searchBar;
+	}
+	
 }
 
 extension NYTMostViewdArticlesViewController: NYTMostViewdArticlesViewProtocol{
@@ -35,11 +69,11 @@ extension NYTMostViewdArticlesViewController: NYTMostViewdArticlesViewProtocol{
 	}
 	
 	func startLoadingAnimation() {
-		
+		startAnimating()
 	}
 	
 	func stopLoadingAnimation() {
-		
+		stopAnimating()
 	}
 	
 }
@@ -55,4 +89,10 @@ extension NYTMostViewdArticlesViewController : UITableViewDelegate, UITableViewD
 		return cell ?? UITableViewCell()
 	}
 	
+}
+
+extension NYTMostViewdArticlesViewController: UISearchResultsUpdating {
+  func updateSearchResults(for searchController: UISearchController) {
+	// TODO
+  }
 }
