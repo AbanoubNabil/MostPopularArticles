@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 extension URL {
 	// Returns a new URL by adding the query items, or nil if the URL doesn't support it.
 	func appending(_ queryItems: [URLQueryItem]) -> URL? {

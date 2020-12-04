@@ -4,8 +4,7 @@
 target 'MostPopularArticles' do
   use_frameworks!
 	
-  pod 'Moya', '13.0.1'
-  # Pods for MostPopularArticles
+	pod 'SwiftLint'
 
   target 'MostPopularArticlesTests' do
     inherit! :search_paths

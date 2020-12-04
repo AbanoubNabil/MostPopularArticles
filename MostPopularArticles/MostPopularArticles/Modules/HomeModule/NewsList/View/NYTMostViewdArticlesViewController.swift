@@ -10,17 +10,16 @@ import UIKit
 
 class NYTMostViewdArticlesViewController: UIViewController {
 
-
 	@IBOutlet weak var newsTableView: UITableView!
-	
+
 	var presenter: NYTMostViewdArticlesPresenterProtocol?
-	
+
 	override func viewDidLoad() {
         super.viewDidLoad()
 		regisetrNewsCell()
 		presenter?.getMostViewdNews()
     }
-	
+
 	func regisetrNewsCell() {
 		let nib = UINib(nibName: "\(NewsTableViewCell.self)", bundle: nil)
 		newsTableView.register(nib, forCellReuseIdentifier: "\(NewsTableViewCell.self)")
@@ -28,31 +27,30 @@ class NYTMostViewdArticlesViewController: UIViewController {
 
 }
 
-extension NYTMostViewdArticlesViewController: NYTMostViewdArticlesViewProtocol{
-	
+extension NYTMostViewdArticlesViewController: NYTMostViewdArticlesViewProtocol {
+
 	func reloadDate() {
 		newsTableView.reloadData()
 	}
-	
+
 	func startLoadingAnimation() {
-		
+
 	}
-	
+
 	func stopLoadingAnimation() {
-		
+
 	}
-	
 }
 
-extension NYTMostViewdArticlesViewController : UITableViewDelegate, UITableViewDataSource{
+extension NYTMostViewdArticlesViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return presenter?.newsCount ?? 0
 	}
-	
+
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "\(NewsTableViewCell.self)") as? NewsTableViewCell
 		cell?.setUp(news: presenter?.getArticle(at: indexPath.row))
 		return cell ?? UITableViewCell()
 	}
-	
+
 }

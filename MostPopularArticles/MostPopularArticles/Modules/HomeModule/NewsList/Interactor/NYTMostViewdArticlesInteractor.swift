@@ -6,11 +6,10 @@
 //  Copyright © 2020 Abanoub Nabil. All rights reserved.
 //
 
-
 import UIKit
 
 class NYTMostViewdArticlesInteractor {
-	
+
     weak var presenter: NYTMostViewdArticlesPresenterProtocol?
 	let service = NYTimesNewsService()
 }
@@ -19,7 +18,7 @@ class NYTMostViewdArticlesInteractor {
 
 extension NYTMostViewdArticlesInteractor: NYTMostViewdArticlesInteractorProtocol {
 	func fetchNewsWith(period: Period) {
-		service.getNYTimesNews(period: period){ [weak self] response in
+		service.getNYTimesNews(period: period) { [weak self] response in
 			DispatchQueue.main.async {
 				switch response {
 				case let .success(parsedResponse):
