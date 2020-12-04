@@ -19,6 +19,8 @@ protocol NYTMostViewdArticlesPresenterProtocol: class {
 	func fetchNewsSuccessful(news: [NewsArticle])
 	func fetchNewsFailure(error: Error)
 	var newsCount: Int { get }
+	var screenTitle: String { get }
+	var searchPlaceeHolder: String { get }
 	func getArticle(at index: Int) -> NewsArticle?
 	func didTapedCell(at index: Int)
 }

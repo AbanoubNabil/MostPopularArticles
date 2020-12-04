@@ -10,6 +10,7 @@
 		0274841658E1DF9904A67071 /* Pods_MostPopularArticles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E432FAB6ED6C9914E1625645 /* Pods_MostPopularArticles.framework */; };
 		206B9BDF3C663DD0285B1ACD /* Pods_MostPopularArticlesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA894C74729963136E4DF2DB /* Pods_MostPopularArticlesTests.framework */; };
 		6579868DA0C66349CD087E97 /* Pods_MostPopularArticles_MostPopularArticlesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 514BD72E9BACBF310BE63BF4 /* Pods_MostPopularArticles_MostPopularArticlesUITests.framework */; };
+		A76AD04C257AC6C500649771 /* NewsLisrLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76AD04B257AC6C500649771 /* NewsLisrLocalization.swift */; };
 		A7B6E02F2578F00A0079879A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6E02E2578F00A0079879A /* AppDelegate.swift */; };
 		A7B6E0382578F00B0079879A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7B6E0372578F00B0079879A /* Assets.xcassets */; };
 		A7B6E03B2578F00B0079879A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7B6E0392578F00B0079879A /* LaunchScreen.storyboard */; };
@@ -82,6 +83,7 @@
 		514BD72E9BACBF310BE63BF4 /* Pods_MostPopularArticles_MostPopularArticlesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MostPopularArticles_MostPopularArticlesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D70180EC9037B6743F6686B /* Pods-MostPopularArticles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MostPopularArticles.release.xcconfig"; path = "Target Support Files/Pods-MostPopularArticles/Pods-MostPopularArticles.release.xcconfig"; sourceTree = "<group>"; };
 		A104EB287BBA2FF0339C65EA /* Pods-MostPopularArticles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MostPopularArticles.debug.xcconfig"; path = "Target Support Files/Pods-MostPopularArticles/Pods-MostPopularArticles.debug.xcconfig"; sourceTree = "<group>"; };
+		A76AD04B257AC6C500649771 /* NewsLisrLocalization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsLisrLocalization.swift; sourceTree = "<group>"; };
 		A7B6E02B2578F00A0079879A /* MostPopularArticles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MostPopularArticles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7B6E02E2578F00A0079879A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7B6E0372578F00B0079879A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -190,6 +192,14 @@
 				FA894C74729963136E4DF2DB /* Pods_MostPopularArticlesTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A76AD04A257AC6C500649771 /* Localiization */ = {
+			isa = PBXGroup;
+			children = (
+				A76AD04B257AC6C500649771 /* NewsLisrLocalization.swift */,
+			);
+			path = Localiization;
 			sourceTree = "<group>";
 		};
 		A7B6E0222578F00A0079879A = {
@@ -480,6 +490,7 @@
 		A7B6E195257993FB0079879A /* NewsList */ = {
 			isa = PBXGroup;
 			children = (
+				A76AD04A257AC6C500649771 /* Localiization */,
 				A7B6E16B25795C5C0079879A /* Enums */,
 				A7B6E15525795A6A0079879A /* Service */,
 				A7B6E138257936070079879A /* Protocols */,
@@ -903,6 +914,7 @@
 				A7B6E1B02579A6A80079879A /* BaseControllerProtocol.swift in Sources */,
 				A7B6E14C257954A00079879A /* NewsTableViewCell.swift in Sources */,
 				A7B6E0C7257911D30079879A /* AccessTokenAuthorizable.swift in Sources */,
+				A76AD04C257AC6C500649771 /* NewsLisrLocalization.swift in Sources */,
 				A7B6E02F2578F00A0079879A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
