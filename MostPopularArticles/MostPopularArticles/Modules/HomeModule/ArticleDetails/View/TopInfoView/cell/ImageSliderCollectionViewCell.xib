@@ -20,7 +20,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Urn-eb-VO9">
                         <rect key="frame" x="0.0" y="0.0" width="328" height="192"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoViche" translatesAutoresizingMaskIntoConstraints="NO" id="iiZ-Gd-kOk">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="iiZ-Gd-kOk">
                                 <rect key="frame" x="0.0" y="0.0" width="328" height="192"/>
                                 <color key="backgroundColor" red="0.62745098040000002" green="0.6705882353" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
@@ -61,7 +61,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="logoViche" width="250" height="140.5"/>
+        <image name="bg" width="1400" height="784"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

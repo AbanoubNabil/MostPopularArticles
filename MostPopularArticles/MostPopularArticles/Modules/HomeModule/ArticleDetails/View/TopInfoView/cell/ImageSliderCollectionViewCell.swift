@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ImageSliderCollectionViewCell: UICollectionViewCell {
 
@@ -19,10 +20,8 @@ class ImageSliderCollectionViewCell: UICollectionViewCell {
 	}
 
 	func setup(with model: String) {
-//		fullImageView.kf.indicatorType = model.url == nil ? .none : .activity
-//		centerImageView.kf.indicatorType = model.url == nil ? .none : .activity
-//		fullImageView.kf.setImage(with: model.url, placeholder: UIImage(named: "logoViche"))
-//		centerImageView.kf.setImage(with: model.centerImageURL)
+		centerImageView.kf.indicatorType = .activity
+		centerImageView.kf.setImage(with: URL(string: model))
 	}
 
 }

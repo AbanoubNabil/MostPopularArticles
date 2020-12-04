@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class NewsTableViewCell: UITableViewCell {
 
@@ -26,6 +27,8 @@ class NewsTableViewCell: UITableViewCell {
 		self.articleTitle.text = news.title
 		self.articleSubtitle.text = news.byline
 		self.articleDate.text = news.published_date
+		articleImage.kf.indicatorType = .activity
+		articleImage.kf.setImage(with: URL(string: news.media?.first?.media_metadata?.first?.url ?? ""))
 	}
 	
 }
