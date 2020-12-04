@@ -15,9 +15,8 @@ class ArticleDetailsPresenter: ArticleDetailsPresenterProtocol {
     weak private var view: ArticleDetailsViewProtocol?
     var interactor: ArticleDetailsInteractorProtocol?
     private let router: ArticleDetailsWireframeProtocol
-	
 	var viewModel: ArticleDetailsViewModel
-	
+
     init(interface: ArticleDetailsViewProtocol, interactor: ArticleDetailsInteractorProtocol?, router: ArticleDetailsWireframeProtocol, newsArticle: NewsArticle) {
         self.view = interface
         self.interactor = interactor
@@ -28,29 +27,29 @@ class ArticleDetailsPresenter: ArticleDetailsPresenterProtocol {
 }
 
 extension ArticleDetailsPresenter {
-	
-	var articleImages: [String]?{
+
+	var articleImages: [String]? {
 		return viewModel.articleImages
 	}
-	
+
 	var articleTitle: String {
 		return viewModel.articleTitle
 	}
-	
+
 	var articleDate: String {
 		return viewModel.articleDate
 	}
-	
+
 	var articleSection: String {
 		return viewModel.articleSection
 	}
-	
+
 	var articleAbstract: String {
 		return viewModel.articleAbstract
 	}
-	
+
 	var articleByLine: String {
 		return viewModel.articleByLine
 	}
-	
+
 }

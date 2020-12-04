@@ -11,20 +11,20 @@
 import UIKit
 
 class ArticleDetailsRouter: ArticleDetailsWireframeProtocol {
-    
+
     weak var viewController: UIViewController?
-    
+
 	static func createModule(with artiicle: NewsArticle) -> UIViewController {
         // Change to get view from storyboard if not using progammatic UI
         let view = ArticleDetailsViewController(nibName: nil, bundle: nil)
         let interactor = ArticleDetailsInteractor()
         let router = ArticleDetailsRouter()
 		let presenter = ArticleDetailsPresenter(interface: view, interactor: interactor, router: router, newsArticle: artiicle)
-        
+
         view.presenter = presenter
         interactor.presenter = presenter
         router.viewController = view
-        
+
         return view
     }
 }

@@ -10,23 +10,23 @@
 
 import Foundation
 
-//MARK: Wireframe -
+// MARK: Wireframe -
 protocol ArticleDetailsWireframeProtocol: class {
 
 }
-//MARK: Presenter -
+// MARK: Presenter -
 protocol ArticleDetailsPresenterProtocol: class {
 	var viewModel: ArticleDetailsViewModel { get set }
 }
 
-//MARK: Interactor -
+// MARK: Interactor -
 protocol ArticleDetailsInteractorProtocol: class {
 
-  var presenter: ArticleDetailsPresenterProtocol?  { get set }
+  var presenter: ArticleDetailsPresenterProtocol? { get set }
 }
 
-//MARK: View -
+// MARK: View -
 protocol ArticleDetailsViewProtocol: class {
 
-  var presenter: ArticleDetailsPresenterProtocol?  { get set }
+  var presenter: ArticleDetailsPresenterProtocol? { get set }
 }

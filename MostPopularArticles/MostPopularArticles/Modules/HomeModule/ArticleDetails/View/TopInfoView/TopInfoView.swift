@@ -14,7 +14,7 @@ class TopInfoView: UIView {
 	@IBOutlet var pageControl: UIPageControl!
 
 	// MARK: - Properties
-	
+
 	var headerImages: [String] = [] {
 		didSet {
 			pageControl.numberOfPages = headerImages.count

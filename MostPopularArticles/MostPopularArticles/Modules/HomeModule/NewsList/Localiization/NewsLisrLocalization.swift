@@ -7,6 +7,6 @@
 
 import Foundation
 struct NewsLisrLocalization {
-	var screenTitle: String?{return "NY Times Most Popular"}
-	var searchPlaceholder: String?{return "Search Articles"}
+	var screenTitle: String? {return "NY Times Most Popular"}
+	var searchPlaceholder: String? {return "Search Articles"}
 }

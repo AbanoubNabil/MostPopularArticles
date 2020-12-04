@@ -11,21 +11,21 @@
 import UIKit
 
 class ArticleDetailsViewController: UIViewController, ArticleDetailsViewProtocol {
-	
+
 	@IBOutlet weak var topInfoView: TopInfoView!
 	@IBOutlet weak var articleTitle: UILabel!
 	@IBOutlet weak var articleSection: UILabel!
 	@IBOutlet weak var articleDate: UILabel!
 	@IBOutlet weak var articleByline: UILabel!
 	@IBOutlet weak var articleAbstract: UILabel!
-	
+
 	var presenter: ArticleDetailsPresenterProtocol?
 
 	override func viewDidLoad() {
         super.viewDidLoad()
 		setUpUI()
     }
-	
+
 	func setUpUI() {
 		topInfoView.setup(with: presenter?.viewModel.articleImages ?? [])
 		articleDate.text = presenter?.viewModel.articleDate

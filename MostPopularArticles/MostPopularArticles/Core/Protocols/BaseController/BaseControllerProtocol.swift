@@ -7,17 +7,16 @@
 
 import UIKit
 
+class BaseViewController: UIViewController {
 
-class BaseViewController: UIViewController{
-	
 	lazy var indicatorView: NYLoadingIndicatorView = { NYLoadingIndicatorView() }()
 	private let titleLeading: CGFloat = 120.0
-	
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupIndicatorViewUI()
 	}
-	
+
 	func startAnimating() {
 		DispatchQueue.main.async { [weak self] in
 			self?.indicatorView.startAnimating()
@@ -38,12 +37,11 @@ class BaseViewController: UIViewController{
 	}
 
 	private func setNavigationWith(title: String?) {
-		let titleLabel = UILabel.init(frame: CGRect(x: titleLeading , y: 20, width: UIScreen.main.bounds.width - titleLeading, height: 30))
+		let titleLabel = UILabel.init(frame: CGRect(x: titleLeading, y: 20, width: UIScreen.main.bounds.width - titleLeading, height: 30))
 		titleLabel.text = title
 		navigationItem.titleView = titleLabel
 	}
 
-	
 	func setupIndicatorViewUI() {
 		view.addSubview(indicatorView)
 		indicatorView.translatesAutoresizingMaskIntoConstraints = false
@@ -53,5 +51,5 @@ class BaseViewController: UIViewController{
 		indicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 		indicatorView.isHidden = true
 	}
-	
+
 }
