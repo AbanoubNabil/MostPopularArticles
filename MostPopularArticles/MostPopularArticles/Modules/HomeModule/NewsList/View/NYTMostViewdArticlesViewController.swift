@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NYTMostViewdArticlesViewController: UIViewController {
+class NYTMostViewdArticlesViewController: BaseViewController {
 
 	@IBOutlet weak var newsTableView: UITableView!
 
@@ -16,15 +16,28 @@ class NYTMostViewdArticlesViewController: UIViewController {
 
 	override func viewDidLoad() {
         super.viewDidLoad()
-		regisetrNewsCell()
-		presenter?.getMostViewdNews()
     }
-
+	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		setUpUI()
+		presenter?.getMostViewdNews()
+	}
+	
+	func setUpUI() {
+		regisetrNewsCell()
+		setupNavigationBar(title: "NY Times Most Popular")
+	}
+	
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		.default
+	}
+	
 	func regisetrNewsCell() {
 		let nib = UINib(nibName: "\(NewsTableViewCell.self)", bundle: nil)
 		newsTableView.register(nib, forCellReuseIdentifier: "\(NewsTableViewCell.self)")
 	}
-
+	
 }
 
 extension NYTMostViewdArticlesViewController: NYTMostViewdArticlesViewProtocol {
@@ -34,11 +47,11 @@ extension NYTMostViewdArticlesViewController: NYTMostViewdArticlesViewProtocol {
 	}
 
 	func startLoadingAnimation() {
-
+		startAnimating()
 	}
 
 	func stopLoadingAnimation() {
-
+		stopAnimating()
 	}
 }
 
@@ -56,4 +69,10 @@ extension NYTMostViewdArticlesViewController: UITableViewDelegate, UITableViewDa
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		presenter?.didTapedCell(at: indexPath.row)
 	}
+}
+
+extension NYTMostViewdArticlesViewController: UISearchResultsUpdating {
+  func updateSearchResults(for searchController: UISearchController) {
+	// TODO
+  }
 }
