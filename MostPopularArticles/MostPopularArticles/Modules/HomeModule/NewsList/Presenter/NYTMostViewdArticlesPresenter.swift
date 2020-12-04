@@ -15,7 +15,8 @@ class NYTMostViewdArticlesPresenter {
     var interactor: NYTMostViewdArticlesInteractorProtocol?
     private let router: NYTMostViewdArticlesWireframeProtocol
 
-	var articles: [NewsArticle]?
+	private var articles: [NewsArticle]?
+	private var locallizer  = NewsLisrLocalization()
 	
     init(interface: NYTMostViewdArticlesViewProtocol, interactor: NYTMostViewdArticlesInteractorProtocol?, router: NYTMostViewdArticlesWireframeProtocol) {
         self.view = interface
@@ -26,6 +27,15 @@ class NYTMostViewdArticlesPresenter {
 }
 
 extension NYTMostViewdArticlesPresenter: NYTMostViewdArticlesPresenterProtocol {
+	
+	var screenTitle: String {
+		locallizer.screenTitle ?? ""
+	}
+	
+	var searchPlaceeHolder: String {
+		locallizer.searchPlaceholder ?? ""
+	}
+	
 	
 	func getMostViewdNews() {
 		view?.startLoadingAnimation()
