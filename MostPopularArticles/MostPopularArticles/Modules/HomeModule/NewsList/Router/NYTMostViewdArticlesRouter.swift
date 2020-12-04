@@ -11,6 +11,10 @@ import UIKit
 
 class NYTMostViewdArticlesRouter: NYTMostViewdArticlesWireframeProtocol {
     
+	enum NewsListRouter {
+		case articleDetails(article: NewsArticle)
+	}
+	
     weak var viewController: UIViewController?
     
     static func createModule() -> UIViewController {
@@ -26,4 +30,15 @@ class NYTMostViewdArticlesRouter: NYTMostViewdArticlesWireframeProtocol {
         
         return view
     }
+	
+	func goTo(route: NewsListRouter) {
+		switch route {
+		case let .articleDetails(article):
+			// navigate
+			let vc = ArticleDetailsRouter.createModule(with: article)
+			viewController?.navigationController?.pushViewController(vc, animated: true)
+		default:
+			print("default")
+		}
+	}
 }

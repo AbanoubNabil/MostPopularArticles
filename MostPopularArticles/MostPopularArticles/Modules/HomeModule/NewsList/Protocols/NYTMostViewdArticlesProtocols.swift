@@ -11,7 +11,7 @@ import Foundation
 
 //MARK: Wireframe -
 protocol NYTMostViewdArticlesWireframeProtocol: class {
-
+	func goTo(route: NYTMostViewdArticlesRouter.NewsListRouter)
 }
 //MARK: Presenter -
 protocol NYTMostViewdArticlesPresenterProtocol: class {
@@ -20,6 +20,7 @@ protocol NYTMostViewdArticlesPresenterProtocol: class {
 	func fetchNewsFailure(error: Error)
 	var newsCount: Int { get }
 	func getArticle(at index: Int) -> NewsArticle?
+	func didTapedCell(at index: Int)
 }
 
 //MARK: Interactor -

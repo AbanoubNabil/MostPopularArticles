@@ -55,4 +55,7 @@ extension NYTMostViewdArticlesViewController : UITableViewDelegate, UITableViewD
 		return cell ?? UITableViewCell()
 	}
 	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		presenter?.didTapedCell(at: indexPath.row)
+	}
 }

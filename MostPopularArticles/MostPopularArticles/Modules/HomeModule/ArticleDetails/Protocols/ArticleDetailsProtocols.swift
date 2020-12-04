@@ -16,7 +16,7 @@ protocol ArticleDetailsWireframeProtocol: class {
 }
 //MARK: Presenter -
 protocol ArticleDetailsPresenterProtocol: class {
-
+	var viewModel: ArticleDetailsViewModel { get set }
 }
 
 //MARK: Interactor -

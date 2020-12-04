@@ -52,5 +52,12 @@ extension NYTMostViewdArticlesPresenter{
 	func getArticle(at index: Int) -> NewsArticle? {
 		return self.articles?[index]
 	}
+	
+	func didTapedCell(at index: Int) {
+		guard let article = articles?[index] else {
+			return
+		}
+		router.goTo(route: .articleDetails(article: article))
+	}
 }
 

@@ -47,6 +47,12 @@
 		A7B6E1D22579C7530079879A /* ArticleDetailsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6E1CC2579C7530079879A /* ArticleDetailsProtocols.swift */; };
 		A7B6E1D32579C7530079879A /* ArticleDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6E1CD2579C7530079879A /* ArticleDetailsInteractor.swift */; };
 		A7B6E1D42579C7530079879A /* ArticleDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7B6E1CE2579C7530079879A /* ArticleDetailsViewController.xib */; };
+		A7B6E1E8257A333B0079879A /* TopInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7B6E1E7257A333B0079879A /* TopInfoView.xib */; };
+		A7B6E1ED257A334D0079879A /* TopInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6E1EC257A334D0079879A /* TopInfoView.swift */; };
+		A7B6E204257A34C10079879A /* ImageSliderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6E202257A34C10079879A /* ImageSliderCollectionViewCell.swift */; };
+		A7B6E205257A34C10079879A /* ImageSliderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7B6E203257A34C10079879A /* ImageSliderCollectionViewCell.xib */; };
+		A7B6E20E257A36230079879A /* UIView+height.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6E20D257A36230079879A /* UIView+height.swift */; };
+		A7B6E223257A44BA0079879A /* ArticleDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6E222257A44BA0079879A /* ArticleDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +119,12 @@
 		A7B6E1CC2579C7530079879A /* ArticleDetailsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailsProtocols.swift; sourceTree = "<group>"; };
 		A7B6E1CD2579C7530079879A /* ArticleDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailsInteractor.swift; sourceTree = "<group>"; };
 		A7B6E1CE2579C7530079879A /* ArticleDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleDetailsViewController.xib; sourceTree = "<group>"; };
+		A7B6E1E7257A333B0079879A /* TopInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopInfoView.xib; sourceTree = "<group>"; };
+		A7B6E1EC257A334D0079879A /* TopInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopInfoView.swift; sourceTree = "<group>"; };
+		A7B6E202257A34C10079879A /* ImageSliderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSliderCollectionViewCell.swift; sourceTree = "<group>"; };
+		A7B6E203257A34C10079879A /* ImageSliderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageSliderCollectionViewCell.xib; sourceTree = "<group>"; };
+		A7B6E20D257A36230079879A /* UIView+height.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+height.swift"; sourceTree = "<group>"; };
+		A7B6E222257A44BA0079879A /* ArticleDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +249,7 @@
 		A7B6E0D12579138C0079879A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A7B6E20C257A360E0079879A /* UIView_height */,
 				A7B6E11825791A3A0079879A /* Dictionnary */,
 				A7B6E10C257917900079879A /* URL */,
 				A7B6E0E4257915BB0079879A /* UserDefaults */,
@@ -446,7 +459,7 @@
 		A7B6E196257994230079879A /* ArticleDetails */ = {
 			isa = PBXGroup;
 			children = (
-				A7B6E1DD2579C7800079879A /* Model */,
+				A7B6E221257A44A40079879A /* ViewModel */,
 				A7B6E1DC2579C7780079879A /* Protocols */,
 				A7B6E1DB2579C7710079879A /* Router */,
 				A7B6E1DA2579C7680079879A /* Presenter */,
@@ -459,6 +472,7 @@
 		A7B6E1D82579C7580079879A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A7B6E1E6257A33120079879A /* TopInfoView */,
 				A7B6E1CB2579C7530079879A /* ArticleDetailsViewController.swift */,
 				A7B6E1CE2579C7530079879A /* ArticleDetailsViewController.xib */,
 			);
@@ -497,11 +511,39 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		A7B6E1DD2579C7800079879A /* Model */ = {
+		A7B6E1E6257A33120079879A /* TopInfoView */ = {
 			isa = PBXGroup;
 			children = (
+				A7B6E1F1257A34410079879A /* cell */,
+				A7B6E1E7257A333B0079879A /* TopInfoView.xib */,
+				A7B6E1EC257A334D0079879A /* TopInfoView.swift */,
 			);
-			path = Model;
+			path = TopInfoView;
+			sourceTree = "<group>";
+		};
+		A7B6E1F1257A34410079879A /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				A7B6E202257A34C10079879A /* ImageSliderCollectionViewCell.swift */,
+				A7B6E203257A34C10079879A /* ImageSliderCollectionViewCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		A7B6E20C257A360E0079879A /* UIView_height */ = {
+			isa = PBXGroup;
+			children = (
+				A7B6E20D257A36230079879A /* UIView+height.swift */,
+			);
+			path = UIView_height;
+			sourceTree = "<group>";
+		};
+		A7B6E221257A44A40079879A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A7B6E222257A44BA0079879A /* ArticleDetailsViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -609,9 +651,11 @@
 			files = (
 				A7B6E03B2578F00B0079879A /* LaunchScreen.storyboard in Resources */,
 				A7B6E12F257935540079879A /* NYTMostViewdArticlesViewController.xib in Resources */,
+				A7B6E1E8257A333B0079879A /* TopInfoView.xib in Resources */,
 				A7B6E14D257954A00079879A /* NewsTableViewCell.xib in Resources */,
 				A7B6E1D42579C7530079879A /* ArticleDetailsViewController.xib in Resources */,
 				A7B6E0382578F00B0079879A /* Assets.xcassets in Resources */,
+				A7B6E205257A34C10079879A /* ImageSliderCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,11 +683,13 @@
 				A7B6E0CC257911D30079879A /* Task.swift in Sources */,
 				A7B6E10E257917A30079879A /* URL+Appending.swift in Sources */,
 				A7B6E12E257935540079879A /* NYTMostViewdArticlesInteractor.swift in Sources */,
+				A7B6E20E257A36230079879A /* UIView+height.swift in Sources */,
 				A7B6E13E257940A40079879A /* Media_metadata.swift in Sources */,
 				A7B6E12B257935540079879A /* NYTMostViewdArticlesRouter.swift in Sources */,
 				A7B6E1052579172A0079879A /* NYError.swift in Sources */,
 				A7B6E16F25795C7E0079879A /* Period.swift in Sources */,
 				A7B6E1D22579C7530079879A /* ArticleDetailsProtocols.swift in Sources */,
+				A7B6E223257A44BA0079879A /* ArticleDetailsViewModel.swift in Sources */,
 				A7B6E13F257940A40079879A /* Media.swift in Sources */,
 				A7B6E1D02579C7530079879A /* ArticleDetailsRouter.swift in Sources */,
 				A7B6E13D257940A40079879A /* NYTimesNewsResponse.swift in Sources */,
@@ -654,6 +700,7 @@
 				A7B6E0CB257911D30079879A /* RequestHTTPMethod.swift in Sources */,
 				A7B6E15E25795B680079879A /* NYTimesNewsEndPoint.swift in Sources */,
 				A7B6E1CF2579C7530079879A /* ArticleDetailsPresenter.swift in Sources */,
+				A7B6E204257A34C10079879A /* ImageSliderCollectionViewCell.swift in Sources */,
 				A7B6E0CD257911D30079879A /* EndPoint.swift in Sources */,
 				A7B6E0C9257911D30079879A /* APIService.swift in Sources */,
 				A7B6E1D12579C7530079879A /* ArticleDetailsViewController.swift in Sources */,
@@ -664,6 +711,7 @@
 				A7B6E140257940A40079879A /* NewsArticle.swift in Sources */,
 				A7B6E0E6257915D00079879A /* Defaults.swift in Sources */,
 				A7B6E0F02579165C0079879A /* EnvironmentProtocol.swift in Sources */,
+				A7B6E1ED257A334D0079879A /* TopInfoView.swift in Sources */,
 				A7B6E1D32579C7530079879A /* ArticleDetailsInteractor.swift in Sources */,
 				A7B6E0F9257916A80079879A /* Environment.swift in Sources */,
 				A7B6E14C257954A00079879A /* NewsTableViewCell.swift in Sources */,
