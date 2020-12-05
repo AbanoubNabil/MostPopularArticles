@@ -75,3 +75,5 @@ fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
 
+sonar-reports/xcodebuild.log
+MostPopularArticles/xcodebuild.log

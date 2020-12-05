@@ -15,14 +15,17 @@ protocol NYTMostViewdArticlesWireframeProtocol: class {
 
 // MARK: Presenter -
 protocol NYTMostViewdArticlesPresenterProtocol: class {
-	func getMostViewdNews()
+	func getMostViewdNews(period: Period)
 	func fetchNewsSuccessful(news: [NewsArticle])
 	func fetchNewsFailure(error: Error)
+	func getArticle(at index: Int) -> NewsArticle?
+	func didTapedCell(at index: Int)
+	func filterContentForSearchText(_ searchText: String)
 	var newsCount: Int { get }
 	var screenTitle: String { get }
 	var searchPlaceeHolder: String { get }
-	func getArticle(at index: Int) -> NewsArticle?
-	func didTapedCell(at index: Int)
+	var localization: NewsLisrLocalization { get }
+
 }
 
 // MARK: Interactor -
@@ -37,6 +40,7 @@ protocol NYTMostViewdArticlesInteractorProtocol: class {
 protocol NYTMostViewdArticlesViewProtocol: class {
 
 	var presenter: NYTMostViewdArticlesPresenterProtocol? { get set }
+	var isFiltering: Bool { get }
 	func startLoadingAnimation()
 	func stopLoadingAnimation()
 	func reloadDate()

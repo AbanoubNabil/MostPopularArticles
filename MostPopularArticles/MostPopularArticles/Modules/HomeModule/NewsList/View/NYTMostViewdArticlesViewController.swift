@@ -12,21 +12,23 @@ class NYTMostViewdArticlesViewController: BaseViewController {
 
 	@IBOutlet weak var newsTableView: UITableView!
 
+	// MARK: instance variiables.
+	let searchController = UISearchController(searchResultsController: nil)
 	var presenter: NYTMostViewdArticlesPresenterProtocol?
-	private let titleLeading: CGFloat = 120.0
+
+	var isFiltering: Bool {
+		return searchController.isActive && !(searchController.searchBar.text?.isEmpty ?? false)
+	}
 
 	override func viewDidLoad() {
         super.viewDidLoad()
-    }
-
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
 		setUpUI()
-		presenter?.getMostViewdNews()
-	}
+		presenter?.getMostViewdNews(period: .month)
+    }
 
 	func setUpUI() {
 		self.setNavigationWith(title: presenter?.screenTitle)
+		setupSearchBar()
 		regisetrNewsCell()
 	}
 
@@ -78,7 +80,7 @@ extension NYTMostViewdArticlesViewController: UITableViewDelegate, UITableViewDa
 extension NYTMostViewdArticlesViewController {
 
 	private func setNavigationWith(title: String?) {
-		let titleLabel = UILabel.init(frame: CGRect(x: titleLeading, y: 24, width: UIScreen.main.bounds.width - titleLeading, height: 25))
+		let titleLabel = UILabel.init(frame: CGRect(x: 120, y: 24, width: UIScreen.main.bounds.width, height: 25))
 		titleLabel.text = title
 		titleLabel.textColor = .white
 
@@ -103,11 +105,51 @@ extension NYTMostViewdArticlesViewController {
 	}
 
 	@objc func buttonTaped() {
-		//TODO: Show Menu.
+		let actionSheetController: UIAlertController = UIAlertController(title: "Select Articles Period", message: nil, preferredStyle: .actionSheet)
+
+		let cancelAction = UIAlertAction(title: presenter?.localization.cancel, style: .cancel)
+
+		let forDay = UIAlertAction(title: presenter?.localization.forDay, style: .default) { _ in
+			self.presenter?.getMostViewdNews(period: .day)
+		}
+
+		let forWeek = UIAlertAction(title: presenter?.localization.forWeek, style: .default) { _ in
+			self.presenter?.getMostViewdNews(period: .week)
+		}
+
+		let forMonth = UIAlertAction(title: presenter?.localization.forMonth, style: .default) { _ in
+			self.presenter?.getMostViewdNews(period: .month)
+		}
+
+		actionSheetController.addAction(forDay)
+		actionSheetController.addAction(forWeek)
+		actionSheetController.addAction(forMonth)
+		actionSheetController.addAction(cancelAction)
+
+		self.present(actionSheetController, animated: true, completion: nil)
 	}
 
 	@objc func searchTapped() {
-		//TODO: show search bar.
+		if #available(iOS 13.0, *) {
+			searchController.searchBar.searchTextField.becomeFirstResponder()
+		}
+	}
+
+}
+
+extension NYTMostViewdArticlesViewController: UISearchResultsUpdating {
+
+	func setupSearchBar() {
+		searchController.searchResultsUpdater = self
+		searchController.obscuresBackgroundDuringPresentation = false
+		searchController.searchBar.placeholder = presenter?.localization.searchPlaceholder
+		navigationItem.searchController = searchController
+		definesPresentationContext = true
+	}
+
+	func updateSearchResults(for searchController: UISearchController) {
+		let searchBar = searchController.searchBar
+		presenter?.filterContentForSearchText(searchBar.text ?? "")
 	}
 
 }

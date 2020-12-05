@@ -16,6 +16,7 @@ class NYTMostViewdArticlesPresenter {
 
 	private var articles: [NewsArticle]?
 	private var locallizer  = NewsLisrLocalization()
+	private var filteredArticles: [NewsArticle]?
 
     init(interface: NYTMostViewdArticlesViewProtocol, interactor: NYTMostViewdArticlesInteractorProtocol?, router: NYTMostViewdArticlesWireframeProtocol) {
         self.view = interface
@@ -25,7 +26,13 @@ class NYTMostViewdArticlesPresenter {
 
 }
 
+// MARK: delegate methods
+
 extension NYTMostViewdArticlesPresenter: NYTMostViewdArticlesPresenterProtocol {
+
+	var localization: NewsLisrLocalization {
+		locallizer
+	}
 
 	var screenTitle: String {
 		locallizer.screenTitle ?? ""
@@ -35,9 +42,9 @@ extension NYTMostViewdArticlesPresenter: NYTMostViewdArticlesPresenterProtocol {
 		locallizer.searchPlaceholder ?? ""
 	}
 
-	func getMostViewdNews() {
+	func getMostViewdNews(period: Period) {
 		view?.startLoadingAnimation()
-		interactor?.fetchNewsWith(period: .week)
+		interactor?.fetchNewsWith(period: period)
 	}
 
 	func fetchNewsSuccessful(news: [NewsArticle]) {
@@ -51,20 +58,34 @@ extension NYTMostViewdArticlesPresenter: NYTMostViewdArticlesPresenterProtocol {
 	}
 }
 
+// MARK: Table Data Source Methods
 extension NYTMostViewdArticlesPresenter {
 
 	var newsCount: Int {
-		return self.articles?.count ?? 0
+		view?.isFiltering ?? false ? self.filteredArticles?.count ?? 0 : self.articles?.count ?? 0
 	}
 
 	func getArticle(at index: Int) -> NewsArticle? {
-		return self.articles?[index]
+		view?.isFiltering ?? false ? self.filteredArticles?[index] : self.articles?[index]
 	}
 
 	func didTapedCell(at index: Int) {
-		guard let article = articles?[index] else {
-			return
+		if let article = filteredArticles?[index], view?.isFiltering ?? false {
+			router.goTo(route: .articleDetails(article: article))
 		}
-		router.goTo(route: .articleDetails(article: article))
+
+		if let article = articles?[index], !(view?.isFiltering ?? false ) {
+			router.goTo(route: .articleDetails(article: article))
+		}
+
+	}
+}
+
+// MARK: Search Methods
+extension NYTMostViewdArticlesPresenter {
+
+	func filterContentForSearchText(_ searchText: String) {
+		self.filteredArticles = articles?.filter({($0.title?.lowercased().contains(searchText.lowercased()) ?? false)})
+		view?.reloadDate()
 	}
 }
